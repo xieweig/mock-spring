@@ -8,10 +8,16 @@
 <div th:fragment="request-param">
     <form  method="post" th:action="@{/enum}">
         <label>
-        <input type="radio" value="first1" name="testEnum">选项1
+        <input type="radio" value="first1" name="radioEnum">选项1
         </label>
         <label>
-            <input type="radio" value="second2" name="testEnum">选项2
+            <input type="radio" value="second2" name="radioEnum">选项2
+        </label>
+        <label>
+            <input type="checkbox" value="first1" name="checkEnum">复选项1
+        </label>
+        <label>
+            <input type="checkbox" value="second2" name="checkEnum">复选项2
         </label>
         <button type="submit">提交</button>
     </form>

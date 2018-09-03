@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Controller
 public class MvcController {
@@ -34,8 +35,11 @@ public class MvcController {
         return modelAndView;
     }
     @RequestMapping(value="/enum",method = RequestMethod.POST)
-    public String third(@RequestParam TestEnum testEnum, Model model){
-        System.err.println(testEnum.toString());
+    public String third(@RequestParam TestEnum radioEnum,
+                        @RequestParam List<TestEnum> checkEnum,
+                        Model model){
+
+        System.err.println(radioEnum.toString()+"==>>"+checkEnum.size()+checkEnum.toString());
         model.addAttribute("datas", memoryDatabase.getPersons());
         return "first_view";
     }
