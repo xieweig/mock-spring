@@ -13,19 +13,20 @@
     <th>name</th>
     <th>sex</th>
     </thead>
-    <tbody th:each="person : ${datas}">
-    <tr>
+    <tbody >
+    <tr th:each="person : ${datas}">
         <td th:text="${person.age}">hi</td>
         <td th:text="${person.name}">hi</td>
         <td th:text="${person.sex}">hi</td>
 
     </tr>
     </tbody>
+</table>
     <button th:if="${lock}">lock true</button>1
     <button th:unless="${lock}">lock false</button>2
     <button th:if="not ${lock}">lock false</button>3
 
-</table>
+
 <div th:replace="fragment :: request-param"></div>
 <script type="application/javascript" th:inline="javascript">
     var a = [[${lock}]];

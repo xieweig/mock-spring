@@ -15,6 +15,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -64,7 +65,10 @@ public class MockSpringApplicationTests {
             bf.flush();
         }
         System.out.println(jsonPerson);
-        System.err.println(objectMapper.readValue(jsonPerson, Person.class));
+        try(BufferedReader br = Files.newBufferedReader(target)){
+            System.err.println(objectMapper.readValue(br.readLine(), Person.class));
+        }
+
     }
     @Test
     public void test03(){

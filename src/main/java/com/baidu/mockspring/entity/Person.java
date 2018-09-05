@@ -9,13 +9,18 @@ import java.time.LocalDate;
 @Data
 public class Person {
 
-    private String name;
+    private String name="unknown";
 
-    private Integer age;
-    @JsonIgnore
-    private Boolean sex;
+    private Integer age=10;
+   // @JsonIgnore
+    private Boolean sex= true;
     @JsonFormat(pattern = "yyyy -> MM^_^dd")
     private LocalDate localDate= LocalDate.now();
+
+ /*   public void testLocalDate(){
+        LocalDate l1 = localDate.minusDays(3);
+        LocalDate l2 = localDate.plusMonths(2).minusDays(4);
+    }*/
 
 
 }

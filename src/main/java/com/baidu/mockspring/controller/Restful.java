@@ -37,7 +37,7 @@ public class Restful {
         return memoryDatabase.getPersons()
                 .stream()
                 .filter(person -> person.getName().contains(personName))
-                .findFirst().get();
+                .findFirst().orElseGet(Person::new);
     }
 
 

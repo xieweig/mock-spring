@@ -1,6 +1,7 @@
 package com.baidu.mockspring.entity;
 
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -12,8 +13,8 @@ import java.util.List;
 public class MemoryDatabase {
     
     private List<Person> persons= new ArrayList<Person>(5);
-    
-    private Boolean lock = true;
+    @Value("${lock:true}")
+    private Boolean lock;
     
     @PostConstruct
     public void init(){

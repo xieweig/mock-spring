@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class MvcController {
@@ -39,7 +40,7 @@ public class MvcController {
                         @RequestParam List<TestEnum> checkEnum,
                         Model model){
 
-        System.err.println(radioEnum.toString()+"==>>"+checkEnum.size()+checkEnum.toString());
+        System.err.println(radioEnum.toString()+"==>>"+checkEnum.stream().map(Enum::toString).collect(Collectors.joining(",")));
         model.addAttribute("datas", memoryDatabase.getPersons());
         return "first_view";
     }
